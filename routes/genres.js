@@ -1,4 +1,4 @@
-const { Genre, validate } = require("../models/genres");
+const { Genre, validate } = require("../models/genre");
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
@@ -34,12 +34,10 @@ router.put("/:id", async (req, res) => {
 });
 
 router.delete("/:id", async (req, res) => {
-  // Check if genre exists
   const genre = await Genre.findByIdAndDelete(req.params.id);
   if (!genre)
     return res.status(404).send("The genre with the given ID was not found.");
 
-  // Delete genre
   res.send(genre);
 });
 
