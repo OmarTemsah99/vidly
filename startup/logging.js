@@ -8,41 +8,41 @@ module.exports = function () {
     format: winston.format.simple(),
     transports: [
       new winston.transports.Console({
-        format: winston.format.simple()
+        format: winston.format.simple(),
       }),
       new winston.transports.File({
-        filename: "logfile.log"
+        filename: "logfile.log",
       }),
       new winston.transports.MongoDB({
         db: "mongodb://localhost/vidly",
         level: "error",
-        collection: "logs"
-      })
+        collection: "logs",
+      }),
     ],
     exceptionHandlers: [
       new winston.transports.Console({
-        format: winston.format.simple()
+        format: winston.format.simple(),
       }),
       new winston.transports.File({
-        filename: "exceptions.log"
+        filename: "exceptions.log",
       }),
       new winston.transports.MongoDB({
         db: "mongodb://localhost/vidly",
-        collection: "logs"
-      })
+        collection: "logs",
+      }),
     ],
     rejectionHandlers: [
       new winston.transports.Console({
-        format: winston.format.simple()
+        format: winston.format.simple(),
       }),
       new winston.transports.File({
-        filename: "rejections.log"
+        filename: "rejections.log",
       }),
       new winston.transports.MongoDB({
         db: "mongodb://localhost/vidly",
-        collection: "logs"
-      })
-    ]
+        collection: "logs",
+      }),
+    ],
   });
 
   process.on("exit", () => {

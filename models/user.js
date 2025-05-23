@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
   isAdmin: Boolean,
 });
 
+// exercise create a test for this unit
 userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign(
     { _id: this._id, isAdmin: this.isAdmin },
