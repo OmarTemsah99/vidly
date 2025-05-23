@@ -1,6 +1,6 @@
 require("express-async-errors");
 const winston = require("winston");
-require("winston-mongodb");
+require("winston-mongodb"); // might cause problems with integration testing if so just comment the related parts
 
 module.exports = function () {
   winston.configure({
