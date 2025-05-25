@@ -2,6 +2,7 @@ const { Movie, validate } = require("../models/movie");
 const { Genre } = require("../models/genre");
 const mongoose = require("mongoose");
 const auth = require("../middleware/auth");
+const validateMiddleWare = require("../middleware/validate");
 const express = require("express");
 const router = express.Router();
 
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
   res.send(movies);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", [auth, validateMiddleWare(validate)], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -31,7 +32,7 @@ router.post("/", auth, async (req, res) => {
   res.send(movie);
 });
 
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", [auth, validateMiddleWare(validate)], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
