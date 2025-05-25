@@ -97,7 +97,6 @@ npm start
 
 ## 🧰 Tech Stack
 
-- **Frontend:** React, Bootstrap
 - **Backend:** Node.js, Express.js, MongoDB, JWT
 - **Validation:** Joi
 - **Authentication:** Custom middleware & JWT
