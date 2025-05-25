@@ -1,6 +1,6 @@
 # 🎥 Vidly
 
-Vidly is a video rental service simulation built using the MERN stack. It showcases full-stack development with user authentication, protected routes, and admin-level operations for managing genres, movies, and customers.
+Vidly is a video rental service simulation built using the node, express and mongo. It showcases backend development with user authentication, protected routes, and admin-level operations for managing genres, movies, and customers.
 
 ![Last Commit](https://img.shields.io/github/last-commit/OmarTemsah99/vidly)
 ![Stack](https://img.shields.io/badge/stack-MERN-blue)
@@ -12,8 +12,6 @@ Vidly is a video rental service simulation built using the MERN stack. It showca
 - 🌐 **MongoDB** – NoSQL database
 - ⚙️ **Express.js** – Backend framework
 - 🔐 **JWT** – Secure authentication
-- 🖥 **React** – Frontend library
-- 🎨 **Bootstrap** – UI styling
 - 🛠 **Node.js** – Runtime environment
 
 ---
@@ -75,17 +73,6 @@ Start the server:
 node index.js
 ```
 
-### 3. Setup Frontend (`vidly-react` folder):
-
-Open a new terminal:
-
-```bash
-cd vidly-react
-npm install
-npm start
-```
-
----
 
 ## 💻 Usage
 
