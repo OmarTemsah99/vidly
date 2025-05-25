@@ -1,6 +1,7 @@
 const { Customer, validate } = require("../models/customer");
 const mongoose = require("mongoose");
 const auth = require("../middleware/auth");
+const validateMiddleWare = require("../middleware/validate");
 const express = require("express");
 const router = express.Router();
 
@@ -9,7 +10,7 @@ router.get("/", async (req, res) => {
   res.send(customers);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", validateMiddleWare(validate), async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -23,10 +24,7 @@ router.post("/", auth, async (req, res) => {
   res.send(customer);
 });
 
-router.put("/:id", auth, async (req, res) => {
-  const { error } = validate(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
-
+router.put("/:id", [auth, validateMiddleWare(validate)], async (req, res) => {
   const customer = await Customer.findByIdAndUpdate(
     req.params.id,
     {
